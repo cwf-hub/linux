@@ -20,11 +20,11 @@ all:$(TARGET)
 MPI_LIBS := $(XM_LIB)/*.a 
 
 %.o:%.c $(DEPS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC64) $(CFLAGS) -c $< -o $@
 #说明：
 #$@表示目标项，即$(TARGET),$^表示依赖项的所有文件，即$(OBJ)	
 $(TARGET):$(OBJ)
-	$(CC) $(LDFLAGS) -o $@ $^ -Xlinker "-(" $(MPI_LIBS) -Xlinker "-)"
+	$(CC64) $(LDFLAGS) -o $@ $^ -Xlinker "-(" $(MPI_LIBS) -Xlinker "-)"
 	
 clean:
 	rm -rf $(TARGET)
